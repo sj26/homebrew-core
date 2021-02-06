@@ -23,7 +23,7 @@ class Fzf < Formula
     prefix.install "install", "uninstall"
     (prefix/"shell").install %w[bash zsh fish].map { |s| "shell/key-bindings.#{s}" }
     (prefix/"shell").install %w[bash zsh].map { |s| "shell/completion.#{s}" }
-    (prefix/"plugin").install "plugin/fzf.vim"
+    (share/"vim/vimfiles/plugin").install "plugin/fzf.vim"
     man1.install "man/man1/fzf.1", "man/man1/fzf-tmux.1"
     bin.install "bin/fzf-tmux"
   end
@@ -32,9 +32,6 @@ class Fzf < Formula
     <<~EOS
       To install useful keybindings and fuzzy completion:
         #{opt_prefix}/install
-
-      To use fzf in Vim, add the following line to your .vimrc:
-        set rtp+=#{opt_prefix}
     EOS
   end
 
